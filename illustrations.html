@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Illustrations | Unsplash</title>
+    <link rel="icon" href="images/unsplash-logo.jpg">
+    <style>
+      a{
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+      }
+      body {
+        margin:0;
+        padding-left: 5px;
+      }
+      .main{
+        display: flex;
+        flex-direction: row;
+      }
+      .line{
+        border-bottom: 1px solid rgb(96,96,96);
+        margin-top: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left:10px;
+        margin-right: 10px;
+        width:20px;
+        align-self: center;
+      }
+      .top{
+        display: flex;
+        flex-direction: column;
+      }
+      .navbar{
+        display: block;
+        overflow: hidden;
+        position:fixed;
+        width:100%;
+        z-index: 1000;
+      }
+      .sidebar{
+        width:45px;
+        height:100%;
+        position: fixed;
+        border-right: 2px solid rgba(96,96,96,0.3);
+      }
+      .sidebar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+      }
+      .sidebar a{
+        text-decoration: none;
+        color: black;
+      }
+      .center{
+        margin-left: 47px;
+      }
+      .category-bar ul{
+        list-style: none;
+        padding: 0;
+        padding-top: 5px;
+        margin:0;
+        border-bottom: 2px solid rgba(96,96,96,0.3);
+        overflow: hidden;
+        position:fixed;
+        width: 100%;
+        background-color: white;
+        z-index: 1000;
+        padding-left: 15px;
+      }
+      
+      .category-bar a{
+        text-decoration: none;
+        color: rgba(96,96,96,0.5);
+        padding: 15px;
+        display: inline-block;
+        font-weight: 700;
+        border-radius: 5px;
+      }
+      .featured a{
+        border-bottom: 2px solid black;
+        color: black;
+        padding: 14px;
+        border-radius: 0px;
+      }
+      .category-bar a:hover{
+        background-color: rgba(96,96,96,0.1);
+        color: black;
+        font-weight: 700;
+        transition: 0.2s;
+      }
+      .category-bar a:active{
+        background-color: rgba(96,96,96,0.3);
+        border-bottom: 2px solid black;
+        padding: 14px;
+      }
+      .category-bar li{
+        float: left;
+      }
+      .core{
+        
+        margin-top: 140px;
+        padding:10px;
+      }
+      .title{
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        margin-right: 10px;
+      }
+      .top-bar{
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 70px;
+        padding-top:5px;
+        padding-left: 15px;
+      }
+      .top-right{
+        display: flex;
+        justify-content: flex-end;
+        flex:1;
+        align-items: center;
+      }
+      .top-right a{
+        text-decoration: none;
+        color: black;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+      }
+      .top-right a:hover{
+        background-color: rgba(96,96,96,0.1);
+        transition: 0.2s;
+      }
+      .top-right a:active{
+        background-color: rgba(96,96,96,0.3);
+      }
+      .search-bar{
+        display: flex;
+        flex:1;
+        padding-left:5px;
+      }
+      .photos{
+        background-color: rgba(96,96,96,0.1);
+        border-radius: 5px;
+        border-color: black;
+        border-style: solid;
+        border-width: 2px;
+      }
+      .search-bar input{
+        width: 100%;
+        height: 30px;
+        border-color: rgba(96,96,96,0.3);
+        border-style: solid;
+        background-color: rgba(197, 195, 195, 0.3);
+        border-radius: 20px;
+        min-width: 90px;
+        align-self: center;
+        padding: 5px;
+      }
+      .search-bar input:focus{
+        background-color: white;
+
+      }
+      .login-link{
+        color: rgba(96,96,96,0.2);
+      }
+      .logo{
+        width: 25px;
+        height: 25px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 2px;
+        border-radius: 5px;
+      }
+      .logo:hover{
+        background-color: rgba(96,96,96,0.1);
+        transition: 0.2s;
+      }
+      .topbar-icon{
+        width: 40px;
+        height: 40px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .topbar-icon:hover{
+        background-color: rgba(96,96,96,0.1);
+        transition: 0.2s;
+      }
+      .pro{
+        font-weight: 700;
+        
+        padding: 10px;
+      }
+      .top-right .pro a:hover{
+        background-color: black;
+        color: white;
+        transition: 0.2s;
+      }
+      .sidebar-logo{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .sidebar-logo-bottom{
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .submit-button{
+        background-color: white;
+        color: rgb(96,96,96);
+        border-color: rgba(96,96,96,0.5);
+        border-radius: 5px;
+        padding: 10px;
+        font-weight: 700;
+        border-style: solid;
+      }
+      .submit-button:hover{
+        background-color: white;
+        border-color: black;
+        color: black;
+        transition: 0.2s;
+      }
+      .submit-button:active{
+        background-color: white;
+        border-color: black;
+        color: black;
+        transition: 0.2s;
+      }
+      .showcase{
+        padding-top: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .image-wrapper{
+        overflow: hidden;
+        position: relative;
+        border-radius: 10px;
+      }
+      .showcase-images{
+        margin: 0;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        
+        margin-left: 10px;
+        margin-right: 10px;
+
+      }
+      .showcase-images .image-wrapper img{
+        width: 100%;
+        border-radius: 10px;
+        
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      .showcase-images .image-wrapper img:hover{
+        cursor: pointer;
+        transform: scale(1.02);
+        transition: transform 0.2s;
+        filter: brightness(70%);
+      }
+      .Unsplash{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .unmain{
+        width: 45%;
+        height: 300px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 10px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+      .unmain .header{
+        width: 100%;
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        color: black;
+        font-family: Arial, sans-serif;
+        text-align: left;
+      }
+      .unmain .matter{
+        
+        font-size: 16px;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        color: rgb(96,96,96);
+        font-family: Arial, sans-serif;
+        padding-right: 55%;
+      }
+      .unmain .input{
+        width: 100%;
+        display: flex;
+        padding-right: 20px;
+      }
+      .unmain .input input{
+        width: 100%;
+        height: 40px;
+        border-color: rgba(96,96,96,0.3);
+        border-style: solid;
+        background-color: rgba(197, 195, 195, 0.3);
+        border-radius: 20px;
+        min-width: 90px;
+        align-self: center;
+        padding: 10px;
+        font-size: 16px;
+      }
+      .unmain .input input:focus{
+        background-color: white;
+      }
+      .collection{
+        width: 22.5%;
+        height: 300px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 10px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(96,96,96,0.3);
+      }
+      .collection .top{
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .collection .title{
+        font-size: 17px;
+        font-weight: 450;
+      }
+      .collection .see-more a{
+        font-size: 14px;
+        color: rgb(96,96,96);
+      }
+      .collection .genre{
+        width: 90%;
+        height: 45px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 3px;
+      }
+      .collection .genre a{
+        text-decoration: none;
+        color: black;
+      }
+      .collection .genre:hover{
+        background-color: rgba(96,96,96,0.1);
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      .collection .genre .Image{
+        width: 45px;
+        height: 45px;
+        overflow: hidden;
+        border-radius: 5px;
+        float: left;
+      }
+      .collection .genre .Image img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .collection .genre .about{
+        padding-left: 55px;
+        padding-top: 5px;
+        font-family: Arial, sans-serif;
+      }
+      .collection .genre .about .name{
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .collection .genre .about .photos-count{
+        font-size: 12px;
+        color: rgb(96,96,96);
+      }
+      .topics{
+        width: 22.5%;
+        height: 300px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 10px;
+        background-color: black;
+        align-items: center;
+        justify-content: center;
+        
+      }
+      .awards{
+        width: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20%;
+        margin-left: 5%;
+      }
+      .awards p{
+        text-align: center;
+        line-height: 1.5;
+      }
+      .description{
+        color: rgb(215, 212, 212);
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+      .description .title{
+        font-size: 20px;
+        font-weight: 700;
+        display: block;
+        color: white;
+      }
+      .topics:hover{
+        cursor: pointer;
+        background-color: rgba(50,50,50,0.9);
+        transition: background-color 0.2s;
+        color: white;
+      }
+      .bottom-line{
+        border-bottom: 2px solid rgb(96,96,96);
+        margin-top: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width:100%;
+      }
+      .bottom-menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        padding-top: 10px;
+      }
+      .about-unsplash{
+        width: 35%;
+        border-radius: 5px;
+        margin-left: 20px;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .about-unsplash .logo{
+        width: 40px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .about-unsplash .logo img{
+        width: 100%;
+      }
+      .about-unsplash .name h2{
+        font-family: sans-serif;
+        font-size: 25px;
+      }
+      .about-unsplash .address{
+        width: 60%;
+        line-height: 1.5;
+        font-family: sans-serif;
+      }
+      .about-unsplash .social-media{
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        vertical-align: center;
+      }
+      .about-unsplash .social-media .logo{
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+      .about-unsplash .social-media .logo img{
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+      }
+      .about-unsplash .social-media .logo img:hover{
+        cursor: pointer;
+      }
+      .col{
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 20%;
+      }
+      .col a{
+        color: rgb(96,96,96);
+        text-decoration: none;
+        padding: 5px;
+        font-size: 14px;
+        display: block;
+        font-family: Arial, sans-serif;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .col a:hover{
+        background-color: rgba(96,96,96,0.1);
+        color: black;
+        transition: 0.2s;
+      }
+    @media (max-width: 768px) {
+      .showcase{
+        flex-direction: column;
+      }
+      .showcase-images{
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .Unsplash{
+        flex-direction: column;
+      }
+      .unmain, .collection, .topics{
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      .top-bar, .category-bar ul{
+        position: static;
+        width: 100%;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+    <div class="sidebar">
+      <div class="sidebar-logo">
+      <div class="topbar-icon">
+        <a href="unsplash.html"><img src="images/unsplash-logo.jpg" class="logo"></a>
+      </div>
+      <div class="topbar-icon">
+      <a href="unsplash.html"><img src="images/photos1.webp" class="logo"></a>
+      </div>
+      <div class="topbar-icon photos">
+      <a href="illustrations.html"><img src="images/illustrations.jpg" class="logo"></a>
+      </div>
+      <div class='line'></div>
+      <div class="topbar-icon">
+      <a href=""><img src="images/compass1.png" class="logo"></a>
+      </div>
+      <div class="topbar-icon">
+      <a href=""><img src="images/folder1.png" class="logo"></a>
+      </div>
+      <div class="topbar-icon">
+      <a href=""><img src="images/download.jpg" class="logo"></a>
+      </div>
+      </div>
+      <div class="sidebar-logo-bottom">
+        <div class="topbar-icon">
+          <a href=""><img src="images/profile.jpg" class="logo"></a>
+        </div>
+        <div class="topbar-icon">
+         <a href=""><img src="images/more.jpg" class="logo"></a>
+        </div>
+      </div>
+    </div>
+    <div class="center">
+    <div class="top">
+    <nav class="navbar">
+      <div class="top-bar">
+        <div class="title">
+          <h2>Unsplash</h2>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search Photos and Illustrations">
+        </div>
+        <div class="top-right">
+        <div class="pro"><a href="">Get Unsplash+</a></div>
+        <div><a href="login.html" class="login-link">Log In</a></div>
+        <div><button class="submit-button">Submit an Image</button></div>
+        </div>
+      </div>
+      <div class="category-bar">
+      <ul>
+        <li><div class="featured"><a href="">Featured</a></div></li>
+        <li><a href="">Illustration Award</a></li>
+        <li><a href="">Wallpapers</a></li>
+        <li><a href="">3D</a></li>
+        <li><a href="">Flat</a></li>
+        <li><a href="">Hand Drawn</a></li>
+        <li><a href="">Icons</a></li>
+        <li><a href="">Line Art</a></li>
+        <li><a href="">Patterns</a></li>
+      </ul>
+      </div>
+    </nav>
+    </div>
+    <div class="core">
+      <div class="Unsplash">
+        <div class="unmain">
+        <div class="heading">
+          <p class="header">Unsplash</p>
+        </div>
+        <div class="matter">
+          <p>The internet’s source for visuals.Powered by creators everywhere.</p>
+        </div>
+        <div class="input">
+          <input type="text" placeholder="Search free high-resolution photos">
+        </div>
+      </div>
+      <div class="collection">
+        <div class="top">
+          <div class="title">Collections</div>
+          <div class="see-more"><a href="">see more</a></div>
+        </div>
+        <div class="genre">
+          <div class="Image"><img src="images/collection1.avif"></div>
+          <div class="about">
+            <div class="name">End of summer</div>
+            <div class="photos-count">50 images</div>
+          </div>
+        </div>
+        <div class="genre"><a href="">
+          <div class="Image"><img src="images/collection2.avif"></div>
+          <div class="about">
+            <div class="name">outside.</div>
+            <div class="photos-count">1880 images</div></a>
+          </div>
+        </div>
+        <div class="genre"><a href="">
+          <div class="Image"><img src="images/collection3.avif"></div>
+          <div class="about">
+            <div class="name">autumn</div>
+            <div class="photos-count">248 images</div></a>
+          </div>
+        </div>
+        <div class="genre"><a href="">
+          <div class="Image"><img src="images/collection4.avif"></div>
+          <div class="about">
+            <div class="name">Astrophotography</div>
+            <div class="photos-count">82 images</div></a>
+          </div>
+        </div>
+      </div>
+      <div class="topics">
+        <div class="awards">
+          <p class="description"><span class="title">Unsplash Awards 2025</span> Now accepting submissions to the 9th edition of the Unsplash awards</p>
+        </div>
+      </div>
+      </div>
+      <div class="showcase">
+      <div class="showcase-images">
+        <div class="image-wrapper"><img src="images/illustrations1.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations2.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations3.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations4.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations5.avif"></div>
+      </div>
+      <div class="showcase-images">
+        <div class="image-wrapper"><img src="images/illustrations6.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations7.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations8.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations9.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations10.avif"></div>
+      </div>
+      <div class="showcase-images">
+        <div class="image-wrapper"><img src="images/illustrations11.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations12.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations13.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations14.avif"></div>
+        <div class="image-wrapper"><img src="images/illustrations15.avif"></div>
+      </div>
+
+    </div>
+    <div class="bottom-line"></div>
+    <div class="bottom-menu">
+      <div class="about-unsplash">
+        <div class="logo">
+          <img src="images/unsplash-logo.jpg">
+        </div>
+        <div class="name">
+          <h2>Unsplash</h2>
+        </div>
+        <div class="address">
+          Indian Institute of Technology Kharagpur, West Bengal - 721302
+        </div>
+        <div class="social-media">
+          <div class="logo"><img src="images/instagram.png"></div>
+          <div class="logo"><img src="images/facebook.png"></div>
+          <div class="logo"><img src="images/whatsapp.png"></div>
+          <div class="logo"><img src="images/linkedin.png"></div>
+        </div>
+      </div>
+      <div class="col">
+      <a href="">Privacy</a>
+      <a href="">Help</a>
+      <a href="">API</a>
+      <a href="">Advertise</a>
+      <a href="">Developers</a>
+      </div>
+      <div class="col">
+      <a href="">Guidelines</a>
+      <a href="">License</a>
+      <a href="">Security</a>
+      <a href="">Sitemap</a>
+      <a href="">Directory</a>
+      </div>
+      <div class="col">
+      <a href="">Imprint</a>
+      <a href="">Accessibility</a>
+      <a href="">DMCA</a>
+      <a href="">Your Privacy Choices</a>
+      <a href="">Cookie Settings</a>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>
